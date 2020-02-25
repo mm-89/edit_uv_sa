@@ -1,0 +1,1896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QWidget" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>993</width>
+    <height>839</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>UV Simulation</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_25">
+   <property name="topMargin">
+    <number>10</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="main_frame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QGroupBox" name="mainGroupBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>550</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>General</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_11">
+         <item>
+          <widget class="QGroupBox" name="meshDataGroupBox">
+           <property name="title">
+            <string>Mesh Data</string>
+           </property>
+           <widget class="QWidget" name="horizontalLayoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>29</y>
+              <width>431</width>
+              <height>77</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_28">
+             <item>
+              <widget class="QLabel" name="meshDataFileLabel">
+               <property name="text">
+                <string>Data File:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="meshDataFileLineEdit"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="loadMeshDataButton">
+               <property name="text">
+                <string>Load</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="weatherDataGroupBox">
+           <property name="title">
+            <string>Weather Data</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_20">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLabel" name="weatherDataFileLabel">
+                <property name="toolTip">
+                 <string>The Data File needs to be in appropriate Excel format (Columns: year, month, day, hour, min, zenith angle, azimuth angle, UVglobal, UVDiffused, UVDirect, UVReflected). The data should be continuous and have a constant time step.</string>
+                </property>
+                <property name="text">
+                 <string>Data File:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="weatherDataFileLineEdit">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="toolTip">
+                 <string>The Data File needs to be in appropriate Excel format (Columns: year, month, day, hour, min, zenith angle, azimuth angle, UVglobal, UVDiffused, UVDirect, UVReflected). The data should be continuous and have a constant time step.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="loadWeatherDataButton">
+                <property name="toolTip">
+                 <string>The Data File needs to be in appropriate Excel format (Columns: year, month, day, hour, min, zenith angle, azimuth angle, UVglobal, UVDiffused, UVDirect, UVReflected). The data should be continuous and have a constant time step.</string>
+                </property>
+                <property name="text">
+                 <string>Load</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="exportDataGroupBox">
+           <property name="title">
+            <string>Results</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="0,1">
+              <item>
+               <widget class="QCheckBox" name="checkBoxSubdirectory">
+                <property name="text">
+                 <string>Export To Subdirectory:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEditSubdirectory"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QCheckBox" name="exportVertCheckBox">
+                <property name="text">
+                 <string>Export Vertices Intensities:</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="exportVertCSVLineEdit">
+                <property name="toolTip">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;In case of a simulation involving multiple positions, the file name here should contain the  %position% pattern. This pattern will be replaced by each of the positions name during the simulation.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="exportVertCSVButton">
+                <property name="text">
+                 <string>Browse</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QCheckBox" name="exportFlatCSVCheckBox">
+                <property name="text">
+                 <string>Export Control Surface Intensities:</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="exportFlatCSVLineEdit">
+                <property name="toolTip">
+                 <string>In case of a simulation involving multiple positions, the file name here should contain the  %position% pattern. This pattern will be replaced by each of the positions name during the simulation.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="exportFlatCSVButton">
+                <property name="text">
+                 <string>Browse</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="anatomicalZonesGroupBox">
+           <property name="title">
+            <string>Anatomical Zones</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QCheckBox" name="useAnatZonesCheckBox">
+                <property name="text">
+                 <string>Use Anatomical Zones:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="useAnatZonesLineEdit">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="loadAnatZonesButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Load</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <item>
+               <widget class="QCheckBox" name="exportAnatZonesCheckBox">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Export Anatomical Zones Intensities:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="exportAnatZonesLineEdit">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>In case of a simulation involving multiple positions, the file name here should contain the  %position% pattern. This pattern will be replaced by each of the positions name during the simulation.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="exportAnatZonesButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Browse</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="POIGroupBox">
+           <property name="title">
+            <string>Points of Interest</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <widget class="QCheckBox" name="usePOICheckBox">
+                <property name="text">
+                 <string>Use POI:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="usePOILineEdit">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="loadPOIButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Load</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item>
+               <widget class="QCheckBox" name="exportPOICheckBox">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Export POI Intensities:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="exportPOILineEdit">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>In case of a simulation involving multiple positions, the file name here should contain the  %position% pattern. This pattern will be replaced by each of the positions name during the simulation.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="exportPOIButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Browse</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="protectionsGroupBox">
+           <property name="title">
+            <string>Protections</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QCheckBox" name="useProtectionsCheckBox">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Use Protections:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="useProtectionLinesEdit">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="loadProtectionsButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Load</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QCheckBox" name="exportProtectionsCheckBox">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Export Results Separately</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="exportProtectionsLineEdit">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;In case of a simulation involving multiple positions, the file name here should contain the  %intensities% pattern. This pattern will be replaced by each of the positions intensity name during the simulation.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="exportProtectionsButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Browse</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <widget class="QPushButton" name="loadProtectionsLibButton">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="text">
+                 <string>Load Protection Library File</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="startButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Start Simulation</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="advancedGroupBox">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>460</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>Advanced</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QTabWidget" name="advancedTabWidget">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="tab_5">
+            <attribute name="title">
+             <string>Positions</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QTableWidget" name="positionsTableWidget">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::ActionsContextMenu</enum>
+               </property>
+               <property name="rowCount">
+                <number>0</number>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>125</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Active</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Position</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Start</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>End</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Orientation Type</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Start Angle</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>End Angle</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Angular Step</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Time Step</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Aggregate Multiple Positions:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="multiplePositionsSeparateRadioButton">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string>Each of the positions is simulated separately and their results are not aggregated.</string>
+               </property>
+               <property name="text">
+                <string>Evaluate each position separately</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="multiplePositionsSeqRadioButton">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="toolTip">
+                <string>The position are simulated one after another and the results are aggregated in the target position.</string>
+               </property>
+               <property name="text">
+                <string>Sequence</string>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="multiplePositionsAvgRadioButton">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="toolTip">
+                <string>The position are simulated together and the mean of the results is set in the target position.</string>
+               </property>
+               <property name="text">
+                <string>Average</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_24">
+               <item>
+                <widget class="QLabel" name="targetPositionLabel">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="toolTip">
+                  <string>When aggregating results, there need to be a target position where the results will be put. Note that the results are aggregated by zones and not by vertices.</string>
+                 </property>
+                 <property name="text">
+                  <string>Target Position (Line number):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="targetPositionComboBox">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="toolTip">
+                  <string>When aggregating results, there need to be a target position where the results will be put. Note that the results are aggregated by zones and not by vertices.</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QPushButton" name="reloadPositionsButton">
+               <property name="toolTip">
+                <string>Use this button to refresh the available positions (when you've added or removed positions using the Meshlab layers)</string>
+               </property>
+               <property name="text">
+                <string>Reload Positions</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab">
+            <attribute name="title">
+             <string>Model</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QGroupBox" name="calcGroupBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="title">
+                <string>Calculation</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_21">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetDefaultConstraint</enum>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>9</number>
+                </property>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_13">
+                  <item>
+                   <widget class="QLabel" name="rayPlaneLabel">
+                    <property name="toolTip">
+                     <string>This number is used when calculating ray/plane intersections during the simulation. A greater number will tend to be more precise but can lead to false occlusions. A smaller number will not be as strict in terms of occlusions.</string>
+                    </property>
+                    <property name="text">
+                     <string>Ray/Plane Tolerance Factor:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="rayPlaneSpinBox">
+                    <property name="toolTip">
+                     <string>This number is used when calculating ray/plane intersections during the simulation. A greater number will tend to be more precise but can lead to false occlusions. A smaller number will not be as strict in terms of occlusions.</string>
+                    </property>
+                    <property name="decimals">
+                     <number>3</number>
+                    </property>
+                    <property name="maximum">
+                     <double>1.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.010000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>0.990000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_10">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="boundingBoxesGroupBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="title">
+                <string>Bounding Boxes Optimization</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item>
+                 <widget class="QCheckBox" name="bbDirectCheckBox">
+                  <property name="text">
+                   <string>Use BB for Direct Source Calculation</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="bbDiffuseCheckBox">
+                  <property name="text">
+                   <string>Use BB for Diffuse Source Calculation</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="bbReflectedCheckBox">
+                  <property name="text">
+                   <string>Use BB for Reflected Source Calculation</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_14">
+                  <item>
+                   <widget class="QLabel" name="numBBLabel">
+                    <property name="toolTip">
+                     <string>These are the number of bounding boxes used on each axis. These parameters should be adapted depending on the number of vertices of the model.</string>
+                    </property>
+                    <property name="text">
+                     <string>Number of BB on axis X:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="xBBSpinBox">
+                    <property name="value">
+                     <number>7</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="yBBLabel_2">
+                    <property name="text">
+                     <string>Y:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="yBBSpinBox">
+                    <property name="value">
+                     <number>7</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="zBBLabel">
+                    <property name="text">
+                     <string>Z:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="zBBSpinBox">
+                    <property name="value">
+                     <number>7</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="directSourceGroupBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="title">
+                <string>Direct Source</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_22">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_15">
+                  <item>
+                   <widget class="QCheckBox" name="useDirectSourceCheckBox">
+                    <property name="text">
+                     <string>Use Direct Source</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="diffuseSourceGroupBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="title">
+                <string>Diffuse Source</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_25">
+                  <item>
+                   <widget class="QCheckBox" name="useDiffuseSourceCheckBox">
+                    <property name="text">
+                     <string>Use Diffuse Source</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QGridLayout" name="gridLayout_2">
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QLabel" name="diffuseNumLevelLabel">
+                    <property name="text">
+                     <string>Number of Levels:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QSpinBox" name="diffuseNumLevelSpinBox">
+                    <property name="minimum">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>20</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3" colspan="2">
+                   <widget class="QLabel" name="diffusePtsLabel">
+                    <property name="text">
+                     <string>Number of Points per Level:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QSpinBox" name="diffuseNumPtsSpinBox">
+                    <property name="minimum">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>20</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="diffuseRadiusLabel">
+                    <property name="toolTip">
+                     <string>The radius size is expressed as a constant * the model largest size.</string>
+                    </property>
+                    <property name="text">
+                     <string>Radius Size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" colspan="2">
+                   <widget class="QDoubleSpinBox" name="diffuseRadiusSpinBox">
+                    <property name="toolTip">
+                     <string>The radius size is expressed as a constant * the model largest size.</string>
+                    </property>
+                    <property name="decimals">
+                     <number>1</number>
+                    </property>
+                    <property name="minimum">
+                     <double>2.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>20.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLabel" name="attenuationAngleLabel">
+                    <property name="toolTip">
+                     <string>This parameter simulates the anisotropy of the diffused source. The rays from the diffused source are decreamented linearly from the given angle until 0.</string>
+                    </property>
+                    <property name="text">
+                     <string>Attenuation Angle:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4" colspan="2">
+                   <widget class="QSpinBox" name="attenuationAngleSpinBox">
+                    <property name="toolTip">
+                     <string>This parameter simulates the anisotropy of the diffused source. The rays from the diffused source are decreamented linearly from the given angle until 0.</string>
+                    </property>
+                    <property name="maximum">
+                     <number>90</number>
+                    </property>
+                    <property name="value">
+                     <number>25</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_21">
+                  <item>
+                   <widget class="QCheckBox" name="diffuseMapCheckBox">
+                    <property name="text">
+                     <string>Cache Diffuse Map</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="diffuseMapLineEdit">
+                    <property name="toolTip">
+                     <string>In case of a simulation involving multiple positions, the file name here should contain the  %position% pattern. This pattern will be replaced by each of the positions name during the simulation.</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="diffuseMapButton">
+                    <property name="text">
+                     <string>Browse</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="reflectedSourceGroupBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="title">
+                <string>Reflected Source</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_10">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_26">
+                  <item>
+                   <widget class="QCheckBox" name="useReflectedSourceCheckBox">
+                    <property name="text">
+                     <string>Use Reflected Source</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_18">
+                  <item>
+                   <widget class="QLabel" name="reflectedNumLevelLabel">
+                    <property name="text">
+                     <string>Number of Levels:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="reflectedNumLevelSpinBox">
+                    <property name="minimum">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>20</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="reflectedNumPtsLabel">
+                    <property name="text">
+                     <string>Number of Points per Level:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="reflectedNumPtsSpinBox">
+                    <property name="minimum">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>20</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_19">
+                  <item>
+                   <widget class="QLabel" name="reflectedRadiusLabel">
+                    <property name="toolTip">
+                     <string>The radius size is expressed as a constant * the model largest size.</string>
+                    </property>
+                    <property name="text">
+                     <string>Radius Size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="reflectedRadiusSpinBox">
+                    <property name="toolTip">
+                     <string>The radius size is expressed as a constant * the model largest size.</string>
+                    </property>
+                    <property name="decimals">
+                     <number>1</number>
+                    </property>
+                    <property name="minimum">
+                     <double>2.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>20.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_7">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_22">
+                  <item>
+                   <widget class="QCheckBox" name="reflectedMapCheckBox">
+                    <property name="text">
+                     <string>Cache Reflected Map</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="reflectedMapLineEdit">
+                    <property name="toolTip">
+                     <string>In case of a simulation involving multiple positions, the file name here should contain the  %position% pattern. This pattern will be replaced by each of the positions name during the simulation.</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="reflectedMapButton">
+                    <property name="text">
+                     <string>Browse</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab_2">
+            <attribute name="title">
+             <string>Anatomical Zones</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_12">
+             <item>
+              <widget class="QTreeWidget" name="anatZonesTreeWidget">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::ActionsContextMenu</enum>
+               </property>
+               <property name="dragEnabled">
+                <bool>true</bool>
+               </property>
+               <property name="dragDropMode">
+                <enum>QAbstractItemView::DragOnly</enum>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectItems</enum>
+               </property>
+               <attribute name="headerDefaultSectionSize">
+                <number>100</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Zone Name</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Color</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Red</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Green</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Blue</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_16">
+               <item>
+                <widget class="QPushButton" name="reloadAnatZonesButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Reload</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="saveAnatZonesButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Save</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="saveAnatZonesAsButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Save As</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab_3">
+            <attribute name="title">
+             <string>POIs</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_13">
+             <item>
+              <widget class="QTreeWidget" name="POITreeWidget">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="itemsExpandable">
+                <bool>false</bool>
+               </property>
+               <column>
+                <property name="text">
+                 <string>Point Of Interest Name</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_27">
+               <item>
+                <widget class="QLabel" name="POIradiusLabel">
+                 <property name="toolTip">
+                  <string>This option let you specify a radius or interest around the POI. All vertices values within this radius will be reported in the POI intensities. The radius should be given in the model.size; use the meter tool in Meshlab to determine an appropriate radius.</string>
+                 </property>
+                 <property name="text">
+                  <string>Radius:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="POIRadiusSpinBox">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="toolTip">
+                  <string>This option let you specify a radius or interest around the POI. All vertices values within this radius will be reported in the POI intensities. The radius should be given in the model.size; use the meter tool in Meshlab to determine an appropriate radius.</string>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_17">
+               <item>
+                <widget class="QPushButton" name="reloadPOIButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Reload</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab_4">
+            <attribute name="title">
+             <string>Protections</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_18">
+             <item>
+              <widget class="QGroupBox" name="protectionsGroupBox_2">
+               <property name="title">
+                <string>Protections</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_16">
+                <item>
+                 <widget class="QTreeWidget" name="protectionsTreeWidget">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>120</height>
+                   </size>
+                  </property>
+                  <property name="contextMenuPolicy">
+                   <enum>Qt::ActionsContextMenu</enum>
+                  </property>
+                  <property name="selectionMode">
+                   <enum>QAbstractItemView::SingleSelection</enum>
+                  </property>
+                  <attribute name="headerDefaultSectionSize">
+                   <number>130</number>
+                  </attribute>
+                  <column>
+                   <property name="text">
+                    <string>Clothing / Zone name</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Material</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>IP</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Type</string>
+                   </property>
+                  </column>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_23">
+                  <item>
+                   <widget class="QPushButton" name="reloadProtectionsButton">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Reload</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="saveProtectionsButton">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Save Protections</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="saveProtectionsAsButton">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Save Protections As</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="protectionsLibraryGroupBox">
+               <property name="title">
+                <string>Protections Library</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_17">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_14">
+                  <item>
+                   <widget class="QTreeWidget" name="protectionsLibClothesTreeWidget">
+                    <property name="contextMenuPolicy">
+                     <enum>Qt::ActionsContextMenu</enum>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>Clothes</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_15">
+                  <item>
+                   <widget class="QTreeWidget" name="protectionsLibMaterialsTreeWidget">
+                    <property name="contextMenuPolicy">
+                     <enum>Qt::ActionsContextMenu</enum>
+                    </property>
+                    <attribute name="headerDefaultSectionSize">
+                     <number>200</number>
+                    </attribute>
+                    <attribute name="headerMinimumSectionSize">
+                     <number>150</number>
+                    </attribute>
+                    <column>
+                     <property name="text">
+                      <string>Material</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>IP</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_20">
+                  <item>
+                   <widget class="QPushButton" name="reloadProtectionsLibButton">
+                    <property name="text">
+                     <string>Reload All</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="saveProtectionsLibButton">
+                    <property name="text">
+                     <string>Save Library</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="saveProtectionsLibAsButton">
+                    <property name="text">
+                     <string>Save Library As</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="clearProtectionsLibButton">
+                    <property name="text">
+                     <string>Clear</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab_6">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <attribute name="title">
+             <string>Rendering</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_24">
+             <item>
+              <widget class="QGroupBox" name="sourcesGroupBox">
+               <property name="title">
+                <string>Sources</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_19">
+                <item>
+                 <widget class="QCheckBox" name="renderDirectCheckBox">
+                  <property name="text">
+                   <string>Direct</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="renderDiffusedCheckBox">
+                  <property name="text">
+                   <string>Diffused</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="renderReflectedCheckBox">
+                  <property name="text">
+                   <string>Reflected</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox">
+               <property name="title">
+                <string>Type</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_23">
+                <item>
+                 <widget class="QRadioButton" name="renderAmbiantRadioBtn">
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="text">
+                   <string>Proportion of ambiant light [%]</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="renderAmbiantDirectCheckBox">
+                  <property name="text">
+                   <string>Ambiant Direct</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="renderAmbiantDiffusedCheckBox">
+                  <property name="text">
+                   <string>Ambiant Diffused</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="renderAmbiantReflectedCheckBox">
+                  <property name="text">
+                   <string>Ambiant Reflected</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="renderAbsoluteRadioBtn">
+                  <property name="text">
+                   <string>Absolute values [J/m2]</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_2">
+               <property name="title">
+                <string>Values</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout">
+                <item row="0" column="1">
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>From</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>To</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Blue</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="renderBlueFromSpinBox">
+                  <property name="maximum">
+                   <number>100000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QSpinBox" name="renderBlueToSpinBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>100000</number>
+                  </property>
+                  <property name="value">
+                   <number>33</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Green</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="renderGreenFromSpinBox">
+                  <property name="maximum">
+                   <number>100000</number>
+                  </property>
+                  <property name="value">
+                   <number>33</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QSpinBox" name="renderGreenToSpinBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>100000</number>
+                  </property>
+                  <property name="value">
+                   <number>66</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Red</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="renderRedFromSpinBox">
+                  <property name="minimum">
+                   <number>33</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100000</number>
+                  </property>
+                  <property name="value">
+                   <number>66</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QSpinBox" name="renderRedToSpinBox">
+                  <property name="minimum">
+                   <number>66</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100000</number>
+                  </property>
+                  <property name="value">
+                   <number>100</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>327</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>exportVertCheckBox</tabstop>
+  <tabstop>exportVertCSVLineEdit</tabstop>
+  <tabstop>loadWeatherDataButton</tabstop>
+  <tabstop>exportVertCSVButton</tabstop>
+  <tabstop>exportFlatCSVCheckBox</tabstop>
+  <tabstop>exportFlatCSVLineEdit</tabstop>
+  <tabstop>weatherDataFileLineEdit</tabstop>
+  <tabstop>exportFlatCSVButton</tabstop>
+  <tabstop>useAnatZonesCheckBox</tabstop>
+  <tabstop>useAnatZonesLineEdit</tabstop>
+  <tabstop>loadAnatZonesButton</tabstop>
+  <tabstop>exportAnatZonesCheckBox</tabstop>
+  <tabstop>exportAnatZonesLineEdit</tabstop>
+  <tabstop>exportAnatZonesButton</tabstop>
+  <tabstop>usePOICheckBox</tabstop>
+  <tabstop>usePOILineEdit</tabstop>
+  <tabstop>loadPOIButton</tabstop>
+  <tabstop>exportPOICheckBox</tabstop>
+  <tabstop>exportPOILineEdit</tabstop>
+  <tabstop>exportPOIButton</tabstop>
+  <tabstop>useProtectionsCheckBox</tabstop>
+  <tabstop>useProtectionLinesEdit</tabstop>
+  <tabstop>loadProtectionsButton</tabstop>
+  <tabstop>exportProtectionsCheckBox</tabstop>
+  <tabstop>startButton</tabstop>
+  <tabstop>rayPlaneSpinBox</tabstop>
+  <tabstop>bbDirectCheckBox</tabstop>
+  <tabstop>bbDiffuseCheckBox</tabstop>
+  <tabstop>bbReflectedCheckBox</tabstop>
+  <tabstop>xBBSpinBox</tabstop>
+  <tabstop>yBBSpinBox</tabstop>
+  <tabstop>zBBSpinBox</tabstop>
+  <tabstop>diffuseNumLevelSpinBox</tabstop>
+  <tabstop>diffuseNumPtsSpinBox</tabstop>
+  <tabstop>diffuseRadiusSpinBox</tabstop>
+  <tabstop>attenuationAngleSpinBox</tabstop>
+  <tabstop>diffuseMapCheckBox</tabstop>
+  <tabstop>diffuseMapLineEdit</tabstop>
+  <tabstop>diffuseMapButton</tabstop>
+  <tabstop>reflectedNumLevelSpinBox</tabstop>
+  <tabstop>reflectedNumPtsSpinBox</tabstop>
+  <tabstop>reflectedRadiusSpinBox</tabstop>
+  <tabstop>reflectedMapCheckBox</tabstop>
+  <tabstop>reflectedMapLineEdit</tabstop>
+  <tabstop>reflectedMapButton</tabstop>
+  <tabstop>advancedTabWidget</tabstop>
+  <tabstop>checkBoxSubdirectory</tabstop>
+  <tabstop>lineEditSubdirectory</tabstop>
+  <tabstop>exportProtectionsLineEdit</tabstop>
+  <tabstop>exportProtectionsButton</tabstop>
+  <tabstop>loadProtectionsLibButton</tabstop>
+  <tabstop>positionsTableWidget</tabstop>
+  <tabstop>multiplePositionsSeparateRadioButton</tabstop>
+  <tabstop>multiplePositionsSeqRadioButton</tabstop>
+  <tabstop>multiplePositionsAvgRadioButton</tabstop>
+  <tabstop>targetPositionComboBox</tabstop>
+  <tabstop>reloadPositionsButton</tabstop>
+  <tabstop>useDirectSourceCheckBox</tabstop>
+  <tabstop>useDiffuseSourceCheckBox</tabstop>
+  <tabstop>useReflectedSourceCheckBox</tabstop>
+  <tabstop>anatZonesTreeWidget</tabstop>
+  <tabstop>reloadAnatZonesButton</tabstop>
+  <tabstop>saveAnatZonesButton</tabstop>
+  <tabstop>saveAnatZonesAsButton</tabstop>
+  <tabstop>POITreeWidget</tabstop>
+  <tabstop>POIRadiusSpinBox</tabstop>
+  <tabstop>reloadPOIButton</tabstop>
+  <tabstop>protectionsTreeWidget</tabstop>
+  <tabstop>reloadProtectionsButton</tabstop>
+  <tabstop>saveProtectionsButton</tabstop>
+  <tabstop>saveProtectionsAsButton</tabstop>
+  <tabstop>protectionsLibClothesTreeWidget</tabstop>
+  <tabstop>protectionsLibMaterialsTreeWidget</tabstop>
+  <tabstop>reloadProtectionsLibButton</tabstop>
+  <tabstop>saveProtectionsLibButton</tabstop>
+  <tabstop>saveProtectionsLibAsButton</tabstop>
+  <tabstop>clearProtectionsLibButton</tabstop>
+  <tabstop>renderDirectCheckBox</tabstop>
+  <tabstop>renderDiffusedCheckBox</tabstop>
+  <tabstop>renderReflectedCheckBox</tabstop>
+  <tabstop>renderAmbiantRadioBtn</tabstop>
+  <tabstop>renderAmbiantDirectCheckBox</tabstop>
+  <tabstop>renderAmbiantDiffusedCheckBox</tabstop>
+  <tabstop>renderAmbiantReflectedCheckBox</tabstop>
+  <tabstop>renderAbsoluteRadioBtn</tabstop>
+  <tabstop>renderBlueFromSpinBox</tabstop>
+  <tabstop>renderBlueToSpinBox</tabstop>
+  <tabstop>renderGreenFromSpinBox</tabstop>
+  <tabstop>renderGreenToSpinBox</tabstop>
+  <tabstop>renderRedFromSpinBox</tabstop>
+  <tabstop>renderRedToSpinBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
